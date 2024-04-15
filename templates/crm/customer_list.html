@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>CRM - Customer List</title>
+{% include "crm/navbar.html" %}
+</head><br><br>
+<body>
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          
+          </tr>
+        </thead>
+        {% for customer in customers %}
+          
+          <tr>
+            <td>{{customer.id}}</td>
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.email }}</td>
+            <td><a class="btn btn-secondary" href="{% url 'edit_customer' customer.id %}">Update&nbsp;<span class="fa-solid fa-address-card"></span></a></td>
+            <td><form action="{% url 'delete_customer' customer.id %}" method="post" onsubmit="return confirm('Are you sure?');">
+              {% csrf_token %}
+            
+              <button class="btn btn-danger" name="delete">&nbsp;&nbsp;Trash Me &nbsp;&nbsp;<span class="fa-solid fa-trash"></span></button></td>
+          </form>
+          
+          </form>
+          </td>
+            {% endfor %} 
+            
+          </tr>
+
+          {% load crispy_forms_tags %}
+
+        
+          </form>
+         
+        </tbody>
+      </table>
+      
+    
+   
+
+    {% comment %} <div class="container">
+    {% comment %} <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}  <button class="btn btn-secondary" type="submit">Logout</button>
+    </form>
+  {% endcomment %}
+
+    
+
+    {% comment %} <a href="{% url 'logout' %}">Logout</a> {% endcomment %}</div>
+</body>
+</html>
