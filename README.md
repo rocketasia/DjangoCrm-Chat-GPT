@@ -26,13 +26,13 @@ venv\scripts\activate
 3. Install required dependencies
 From the root directory, run:
 
-pip install -r requirements.txt
+pip3 install Crispy-Forms=2.0
 
 4. Run migrations
 From the root directory, run:
 
 python manage.py makemigrations
-python manage.py migrate
+python3 manage.py migrate
 
 5. Create an admin user to access the Django Admin interface
 From the root directory, run:
@@ -43,7 +43,7 @@ When prompted, enter a username, email, and password.
 Run the application
 From the root directory, run:
 
-python manage.py runserver
+python3 manage.py runserver
 
 Run the tests
 From the root directory, run:
@@ -52,5 +52,5 @@ From the root directory, run:
 View the application
 Go to http://127.0.0.1:8000/ to view the application.
 
-Copyright and License
+Copyright and License<br>
 Copyright © 2024 One Media Asia Co, Ltd. Code released under the MIT license.
