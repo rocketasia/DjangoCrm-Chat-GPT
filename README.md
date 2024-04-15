@@ -26,7 +26,7 @@ venv\scripts\activate
 3. Install required dependencies
 From the root directory, run:
 
-pip3 install Crispy-Forms=2.0
+pip3 install django-crispy-forms
 
 4. Run migrations
 From the root directory, run:
