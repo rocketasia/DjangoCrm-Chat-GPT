@@ -44,7 +44,7 @@
             <td></td>
             <td>--></td>
                    
-            <td><a class="btn btn-secondary" href="{% url 'edit_customer' customer.id %}">Update&nbsp;<span class="fa-solid fa-address-card"></span></a></td>
+            <td><a class="btn btn-secondary" href="{% url 'edit_customer' customer.id %}">Update Me&nbsp;<span class="fa-solid fa-address-card"></span></a></td>
             <td><form action="{% url 'delete_customer' customer.id %}" method="post" onsubmit="return confirm('Are you sure?');">
               {% csrf_token %}
              <button class="btn btn-danger" name="delete">&nbsp;&nbsp;Trash Me &nbsp;&nbsp;<span class="fa-solid fa-trash"></span></button></td>
