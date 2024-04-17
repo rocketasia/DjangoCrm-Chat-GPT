@@ -7,8 +7,7 @@ Django CRM / Bootstrap / Bootswatch / SQLite
 
 
 
-This project uses Django v5 For Django to work, you must install a correct version of Python. 
-thon on your machine. More information here.
+This project uses Django v5 For Django to work, you must install a correct version of Python on your machine. More information here.
 Visual Studio Code
 Installation
 1. Create a virtual environment
@@ -22,6 +21,7 @@ From the root directory, run:
 On macOS:
 
 source venv/bin/activate
+
 On Windows:
 
 venv\scripts\activate
