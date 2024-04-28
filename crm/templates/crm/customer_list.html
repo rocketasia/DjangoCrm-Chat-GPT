@@ -2,15 +2,14 @@
 <html>
 <head>
   {% load static %}
-  <style>
-
-    
-  </style>
-
+ 
   
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>CRM - Customer List</title>
+
+    {% if user.is_authenticated %}
 {% include "crm/navbar.html" %}
+{% else %}do this{% endif %}
 
 </head><br><br>
 <body>
@@ -25,12 +24,14 @@
             <thead>
               
            <th scope="col">ID</th>
-            <th scope="col">Name</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Phone</th>
             <th scope="col">Email</th>
             <th scope="col"></th>
             <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope="col"></th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
               
           </tr>
         </thead>
@@ -39,18 +40,21 @@
           <tr>
            
             <td>{{customer.id}}</td>  
-            <td>{{ customer.name }}</td>   
+            <td>{{ customer.firstname }}</td>  
+            <td>{{ customer.surname }}</td>
+            <td>{{ customer.phone }}</td> 
             <td>{{ customer.email }}</td>
-            <td></td>
+           
             <td>--></td>
                    
-            <td><a class="btn btn-secondary" href="{% url 'edit_customer' customer.id %}">Update Me&nbsp;<span class="fa-solid fa-address-card"></span></a></td>
-            <td><form action="{% url 'delete_customer' customer.id %}" method="post" onsubmit="return confirm('Are you sure?');">
-              {% csrf_token %}
-             <button class="btn btn-danger" name="delete">&nbsp;&nbsp;Trash Me &nbsp;&nbsp;<span class="fa-solid fa-trash"></span></button></td>
-          </form></td>
-         
+          
+            <td></td>
+         <td> <a class="btn btn-warning me-1" href="{% url 'edit_customer' customer.id %}"><span class="fa-solid fa-pen-to-square fa-lg"></span></a><form action="{% url 'delete_customer' customer.id %}" method="post" onsubmit="return confirm('Are you sure?');">
+            {% csrf_token %}
           </td>
+          <td> <button class="btn btn-danger" name="delete"><span class="fa-solid fa-trash-can fa-lg"></span></button></td>
+        </form>
+          
             {% endfor %} 
             
           </tr>
@@ -61,7 +65,8 @@
           </form>
          
         </tbody>
-      </table>
+      
+      </table>  
       
     
    
