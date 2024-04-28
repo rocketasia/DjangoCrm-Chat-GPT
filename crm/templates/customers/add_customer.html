@@ -16,7 +16,7 @@
   
     {% load crispy_forms_tags %}
 
-    <form method="post" class="form-width">>
+    <form method="post" class="form-width">
         {% csrf_token %}
         {{ form|crispy }}
         <button type="submit" class="btn btn-success">Add Record Data&nbsp;<span class="fa-solid fa-plus"></span></button>
